@@ -20,7 +20,7 @@ console.log('jQuery OK ->', $);
     console.log(leftArrLink);
     
     
-    
+    // Change Img when click arrows
     rightArrLink.click( function () {
         if($('.carousel .container.active').hasClass('active') && $('.carousel .container.active').hasClass('last-img') == false) {
             $('.carousel .container.active').removeClass('active').next().addClass('active') 
@@ -37,8 +37,27 @@ console.log('jQuery OK ->', $);
             $('.carousel .container.active').removeClass('active');
             $('.carousel .container.last-img').addClass('active');
         }
-    }); 
+    });
+    
+    // Change img when click right or left arrow on keyboard 
+    $(document).keydown(function (param) {
+        if(param.keyCode == 39) {
+            if($('.carousel .container.active').hasClass('active') && $('.carousel .container.active').hasClass('last-img') == false) {
+                $('.carousel .container.active').removeClass('active').next().addClass('active') 
+            } else if ($('.carousel .container.active').hasClass('last-img')) {
+                $('.carousel .container.active').removeClass('active');
+                $('.carousel .container.first-img').addClass('active');
+            }
+        } else if(param.keyCode == 37) {
+            if($('.carousel .container.active').hasClass('active') && $('.carousel .container.active').hasClass('first-img') == false) {
+                $('.carousel .container.active').removeClass('active').prev().addClass('active') 
+            } else if ($('.carousel .container.active').hasClass('first-img')) {
+                $('.carousel .container.active').removeClass('active');
+                $('.carousel .container.last-img').addClass('active');
+            }
+        }
+     });
+});
      
- });
 
  // end 

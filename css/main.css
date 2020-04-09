@@ -39,6 +39,7 @@ a {
 .main-section {
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 /* icon prev & next */
@@ -54,4 +55,25 @@ a {
 
 .container {
     display: none;
+}
+
+.info-section {
+    top: 70%;
+    left: 5%;
+    width: 35%;
+    text-shadow: 1px 1px 6px #000000e0;
+}
+
+.info-section h2{
+    font-weight: 600;
+    font-size: 200%;
+}
+
+.info-section h4{
+    font-weight: 400;
+}
+
+.info-section p{
+    margin-top: 5px;
+    font-size: 80%;
 }
