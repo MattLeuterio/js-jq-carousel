@@ -77,3 +77,23 @@ a {
     margin-top: 5px;
     font-size: 80%;
 }
+
+/* circle section */
+
+.circle-section {
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.circle {
+    margin-left: 5px;
+    width: 2px;
+    height: 2px;
+    padding: 6px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+
+.c-active {
+    background: #fff;
+}
