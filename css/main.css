@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    background: #010101;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* utility */
+
+.u_flex {
+    display: flex;
+}
+
+.container.active {
+    display: block; /* jQuery */
+}
+
+.u_pAbsolute {
+    position: absolute;
+}
+
+.u_pRelative {
+    position: relative;
+}
+
+/* main section */
+
+.main-section {
+    justify-content: center;
+    align-items: center;
+}
+
+/* icon prev & next */
+.icon {
+    padding: 20px;
+    font-size: 28px;
+    color: #fff;
+
+
+}
+
+/* img carousel */
+
+.container {
+    display: none;
+}
