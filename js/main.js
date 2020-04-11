@@ -14,46 +14,40 @@ console.log('jQuery OK ->', $);
  $(document).ready( function() {
 
     var rightArrLink = $('.icon.next');
-    console.log(rightArrLink);
-
     var leftArrLink = $('.icon.prev');
-    console.log(leftArrLink);
+
     
     
     // Change Img when click arrows
     rightArrLink.click( function () {
         if($('.container.active').hasClass('active') && $('.container.active').hasClass('last-img') == false) {
-            $('.container.active').removeClass('active').next().addClass('active') 
+            nextElement('.container.active', 'active'); 
         } else if ($('.container.active').hasClass('last-img')) {
-            $('.container.active').removeClass('active');
-            $('.container.first-img').addClass('active');
+            goToFirstElement('.container.active', '.container.first-img', 'active');
         }
-    }); 
+    });  
 
     leftArrLink.click( function () {
         if($('.container.active').hasClass('active') && $('.container.active').hasClass('first-img') == false) {
-            $('.container.active').removeClass('active').prev().addClass('active') 
+            prevElement('.container.active', 'active') 
         } else if ($('.container.active').hasClass('first-img')) {
-            $('.container.active').removeClass('active');
-            $('.container.last-img').addClass('active');
+            goToLastElement('.container.active', '.container.last-img', 'active')        
         }
     });
-  
+
     // Change img when click right or left arrow on keyboard 
     $(document).keydown(function (param) {
         if(param.keyCode == 39) {
             if($('.container.active').hasClass('active') && $('.container.active').hasClass('last-img') == false) {
-                $('.container.active').removeClass('active').next().addClass('active') 
+                nextElement('.container.active', 'active'); 
             } else if ($('.container.active').hasClass('last-img')) {
-                $('.container.active').removeClass('active');
-                $('.container.first-img').addClass('active');
+                goToFirstElement('.container.active', '.container.first-img', 'active');
             }
         } else if(param.keyCode == 37) {
             if($('.container.active').hasClass('active') && $('.container.active').hasClass('first-img') == false) {
-                $('.container.active').removeClass('active').prev().addClass('active') 
+                prevElement('.container.active', 'active');  
             } else if ($('.container.active').hasClass('first-img')) {
-                $('.container.active').removeClass('active');
-                $('.container.last-img').addClass('active');
+                goToLastElement('.container.active', '.container.last-img', 'active')
             }
         }
      });
@@ -61,19 +55,17 @@ console.log('jQuery OK ->', $);
      // Change Circle-Active when click arrows
     rightArrLink.click( function () {
         if($('.circle.c-active').hasClass('c-active') && $('.circle.c-active').hasClass('last-circle') == false) {
-            $('.circle.c-active').removeClass('c-active').next().addClass('c-active');
+            nextElement('.circle.c-active', 'c-active');
         }else if ($('.circle.c-active').hasClass('last-circle')) {
-            $('.circle.c-active').removeClass('c-active');
-            $('.circle.first-circle').addClass('c-active');
+            goToFirstElement('.circle.c-active', '.circle.first-circle', 'c-active');
         }
     }); 
 
     leftArrLink.click( function () {
         if($('.circle.c-active').hasClass('c-active') && $('.circle.c-active').hasClass('first-circle') == false) {
-            $('.circle.c-active').removeClass('c-active').prev().addClass('c-active');
+            prevElement('.circle.c-active', 'c-active'); 
         }else if ($('.circle.c-active').hasClass('first-circle')) {
-            $('.circle.c-active').removeClass('c-active');
-            $('.circle.last-circle').addClass('c-active');
+            goToLastElement('.circle.c-active', '.circle.last-circle', 'c-active')
         }
     }); 
 
@@ -81,21 +73,40 @@ console.log('jQuery OK ->', $);
     $(document).keydown(function (param) {
         if(param.keyCode == 39) {
             if($('.circle.c-active').hasClass('c-active') && $('.circle.c-active').hasClass('last-circle') == false) {
-                $('.circle.c-active').removeClass('c-active').next().addClass('c-active') 
+                nextElement('.circle.c-active', 'c-active'); 
             } else if ($('.circle.c-active').hasClass('last-circle')) {
-                $('.circle.c-active').removeClass('c-active');
-                $('.circle.first-circle').addClass('c-active');
+                goToFirstElement('.circle.c-active', '.circle.first-circle', 'c-active');
             }
         } else if(param.keyCode == 37) {
             if($('.circle.c-active').hasClass('c-active') && $('.circle.c-active').hasClass('first-circle') == false) {
-                $('.circle.c-active').removeClass('c-active').prev().addClass('c-active') 
+                prevElement('.circle.c-active', 'c-active'); 
             } else if ($('.circle.c-active').hasClass('first-circle')) {
-                $('.circle.c-active').removeClass('c-active');
-                $('.circle.last-circle').addClass('c-active');
+                goToLastElement('.circle.c-active', '.circle.last-circle', 'c-active')
             }
         }
      });
 });
+
+
+// functions 
+
+function goToFirstElement(lastActive, first, classActive) {
+    $(lastActive).removeClass(classActive);
+    $(first).addClass(classActive);
+};
+
+function goToLastElement(firstActive, last, classActive) {
+    $(firstActive).removeClass(classActive);
+    $(last).addClass(classActive);
+};
+
+function nextElement(nowActive, classActive) {
+    return  $(nowActive).removeClass(classActive).next().addClass(classActive) 
+};
+
+function prevElement(nowActive, classActive) {
+    return $(nowActive).removeClass(classActive).prev().addClass(classActive);
+}
      
 
  // end 
